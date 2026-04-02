@@ -1,0 +1,43 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu Apr  2 19:52:20 2026
+[*]
+[dumpfile] "/home/Verilog/UART/signal_dump.vcd"
+[dumpfile_mtime] "Thu Apr  2 19:40:12 2026"
+[dumpfile_size] 3198
+[savefile] "/home/Verilog/UART/sim_1.gtkw"
+[timestart] 0
+[size] 1366 718
+[pos] -30 -30
+*-5.331532 54 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_UART_tx.
+[treeopen] tb_UART_tx.uut.
+[sst_width] 41
+[signals_width] 230
+[sst_expanded] 0
+[sst_vpaned_height] 190
+@28
+tb_UART_tx.uut.tx_cu.rst_b
+@29
+tb_UART_tx.uut.tx_cu.clk
+@28
+tb_UART_tx.uut.tx_cu.load_tx_datareg
+tb_UART_tx.uut.tx_cu.byte_ready
+tb_UART_tx.uut.tx_cu.t_byte
+tb_UART_tx.uut.tx_cu.bc_lt_bcmax
+tb_UART_tx.uut.tx_cu.state[2:0]
+tb_UART_tx.uut.tx_cu.next_state[2:0]
+tb_UART_tx.uut.tx_cu.load_tx_DR
+tb_UART_tx.uut.tx_cu.load_tx_SHFTREG
+tb_UART_tx.uut.tx_cu.start
+tb_UART_tx.uut.tx_cu.shift
+tb_UART_tx.uut.tx_cu.clear
+@22
+tb_UART_tx.uut.tx_du.bit_count[3:0]
+tb_UART_tx.uut.tx_du.data_bus[7:0]
+tb_UART_tx.uut.tx_du.tx_datareg[7:0]
+tb_UART_tx.uut.tx_du.tx_shftreg[8:0]
+@28
+tb_UART_tx.uut.tx_du.serial_out
+[pattern_trace] 1
+[pattern_trace] 0

@@ -4,7 +4,7 @@ module UART_TX #(parameter word_size = 8)(
           byte_ready,           //signal ready
           t_byte,               //signal tx start
           rst_b,                //resets internal regs
-          clk                 
+          clk,                 
     output serial_out
 );
 
@@ -32,7 +32,7 @@ datapath_unit tx_du(
     .clk(clk),
     .rst_b(rst_b),
     .serial_out(serial_out),
-    .bc_lt_bcmax(bc_lt_bcmax));
+    .bc_lt_bcmax(bc_lt_bcmax),
     .data_bus(data_bus));
 
 endmodule;
@@ -98,7 +98,7 @@ always @(state, load_tx_datareg, byte_ready, t_byte, bc_lt_bcmax) begin:OUTPUT_A
     endcase
 end
 
-always @(posedge clk, negedgerst_b)begin:STATE_TRANSITIONS
+always @(posedge clk, negedge rst_b)begin:STATE_TRANSITIONS
     if(rst_b == 1'b0)
         state<=idle;
     else
@@ -149,7 +149,10 @@ always @(posedge clk, negedge rst_b)
         if(start == 1'b1)
             tx_shftreg[0] <= 0;
 
-        if(clear == 1'b1)begin
+        if(clear == 1'b1)
+            bit_count <= 0;
+
+        if(shift == 1'b1)begin
             tx_shftreg <= {1'b1, tx_shftreg[word_size:1]};
 
             bit_count <= bit_count + 1;
