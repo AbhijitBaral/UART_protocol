@@ -35,7 +35,7 @@ datapath_unit tx_du(
     .bc_lt_bcmax(bc_lt_bcmax),
     .data_bus(data_bus));
 
-endmodule;
+endmodule
 
 
 module control_unit #(

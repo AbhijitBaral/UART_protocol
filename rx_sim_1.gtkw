@@ -1,0 +1,39 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon Apr  6 17:06:36 2026
+[*]
+[dumpfile] "/home/Verilog/UART/rx_signal_dump.vcd"
+[dumpfile_mtime] "Mon Apr  6 16:58:06 2026"
+[dumpfile_size] 3416
+[savefile] "/home/Verilog/UART/rx_sim_1.gtkw"
+[timestart] 0
+[size] 1366 718
+[pos] -30 -30
+*-4.460816 18 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_UART_RX.
+[treeopen] tb_UART_RX.uut.
+[sst_width] 212
+[signals_width] 300
+[sst_expanded] 1
+[sst_vpaned_height] 190
+@28
+tb_UART_RX.uut.rx_cu.rst_b
+tb_UART_RX.uut.rx_cu.sample_clk
+tb_UART_RX.uut.rx_dp.serial_in
+tb_UART_RX.uut.rx_dp.ser_in_0
+tb_UART_RX.uut.rx_cu.read_not_ready_in
+tb_UART_RX.uut.rx_cu.sc_eq_3
+tb_UART_RX.uut.rx_cu.sc_lt_7
+tb_UART_RX.uut.rx_cu.bc_eq_8
+tb_UART_RX.uut.rx_cu.state[1:0]
+tb_UART_RX.uut.rx_cu.read_not_ready_out
+tb_UART_RX.uut.rx_cu.clr_sample_counter
+tb_UART_RX.uut.rx_cu.inc_sample_counter
+tb_UART_RX.uut.rx_cu.clr_bit_counter
+tb_UART_RX.uut.rx_cu.inc_bit_counter
+tb_UART_RX.uut.rx_cu.shift
+tb_UART_RX.uut.rx_cu.load
+tb_UART_RX.uut.rx_cu.error1
+tb_UART_RX.uut.rx_cu.error2
+[pattern_trace] 1
+[pattern_trace] 0
