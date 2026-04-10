@@ -21,7 +21,7 @@ always
 
 initial begin
     $dumpfile("rx_signal_dump.vcd");
-    $dumpvars(0, tb_UART_RX);
+    $dumpvars(0, tb_UART_clk_generator);
 end
 
 initial begin
