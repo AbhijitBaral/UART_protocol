@@ -94,7 +94,7 @@ always @(posedge sample_clk)
     else
         state <= next_state;
 
-always @(state, ser_in_0, sc_lt_7, read_not_ready_in)begin
+always @(state, ser_in_0,sc_eq_3, sc_lt_7, read_not_ready_in)begin
     read_not_ready_out = 0;
     clr_sample_counter = 0;
     clr_bit_counter = 0;
@@ -109,18 +109,24 @@ always @(state, ser_in_0, sc_lt_7, read_not_ready_in)begin
     case(state)
         idle:
             if(ser_in_0 == 1'b1)
-                next_state = idle;
+                next_state = starting;
             else
                 next_state = idle;
+
         starting:
             if(ser_in_0 == 1'b0)begin
                 next_state = idle;
                 clr_sample_counter = 1;
             end
-            else begin
-                inc_sample_counter = 1;
-                next_state = starting;
-            end
+            else 
+                if(sc_eq_3 == 1'b1) begin
+                    clr_sample_counter = 1;
+                    next_state = receiving;
+                end
+                else begin
+                    inc_sample_counter = 1;
+                    next_state = starting;
+                end
         
         receiving:
             if(sc_lt_7 ==1'b1)begin
@@ -135,30 +141,22 @@ always @(state, ser_in_0, sc_lt_7, read_not_ready_in)begin
                     next_state = receiving;
                 end
                 else begin
-                    clr_sample_counter = 1;
-                    if(!bc_eq_8)begin
-                        shift = 1;
-                        inc_bit_counter = 1;
-                        next_state = receiving;
-                    end
-                    else begin
-                        next_state = idle;
-                        read_not_ready_out = 1;
-                        clr_bit_counter = 1;
-                        if(read_not_ready_in == 1'b1)
-                            error1 = 1;
-                        else if(ser_in_0 ==1'b1)
-                            error2 = 1;
-                        else
-                            load = 1;
-                    end
+                    next_state = idle;
+                    read_not_ready_out = 1;
+                    clr_bit_counter = 1;
+                    if(read_not_ready_in == 1'b1)
+                        error1 = 1;
+                    else if(ser_in_0 ==1'b1)
+                        error2 = 1;
+                    else
+                        load = 1;
                 end
             end
-
+           
             default:
                 next_state = idle;
-        endcase
-    end
+    endcase
+end
 endmodule
 
 
@@ -207,7 +205,7 @@ always @(posedge sample_clk)
 
         if(clr_bit_counter == 1)
             bit_counter <= 0;
-        else if(inc_bit_counter == 2)
+        else if(inc_bit_counter == 1)
             bit_counter <= bit_counter + 1;
 
         if(shift == 1)
